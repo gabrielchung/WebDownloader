@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="web-downloader-pkg-gabrielchung", # Replace with your own username
-    version="0.0.1",
+    name="web-downloader", # Replace with your own username
+    version="0.0.3",
     author="Gabriel Chung",
     author_email="gabrielchung1128@gmail.com",
     description="A Python package using Selenium to download web content",
