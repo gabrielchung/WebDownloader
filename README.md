@@ -8,7 +8,7 @@ Then run the script:
 
     > python process_url.py
 
-It will create a database with the crawled and parsed data from the web. By default, process_url.py gets the data from https://nba.com. Feel free to change it and play around with it.
+It will create a database with the crawled and parsed data from the web. Feel free to change it and play around with it.
 
 Thanks a lot for your time and God bless you.
 
