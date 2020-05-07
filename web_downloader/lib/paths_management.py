@@ -1,8 +1,7 @@
 import os
 
 class App_Paths:
-    path_module_script_path = os.path.abspath(__file__)
-    base_script_path = os.path.dirname(os.path.dirname(path_module_script_path))
+    base_script_path = os.path.abspath(os.getcwd())
     base_web_data_dir_path = os.path.join(base_script_path, 'web_data')
     base_firefox_driver_path = os.path.join(base_script_path, 'firefox_driver')
     firefox_driver_path = None
