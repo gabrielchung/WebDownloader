@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='web-downloader', # Replace with your own username
-    version='0.0.6',
+    version='0.0.7',
     author='Gabriel Chung',
     author_email='gabrielchung1128@gmail.com',
     description='A Python package using Selenium to download web content',
