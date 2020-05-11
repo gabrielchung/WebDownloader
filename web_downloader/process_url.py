@@ -6,3 +6,4 @@ def process_url(url):
     create_db.create_db()    
     url_id = dl.download_url(url, 0)
     parser.parse_url(url_id, 0)
+    return url_id
