@@ -45,7 +45,19 @@ class Database:
                 cursor.close()
             return url_row
         else:
-            return -1
+            return None
+
+    def get_url_by_url(self, url):
+        if self.check_if_db_exists():
+            with sqlite3.connect(self.db_path) as conn:
+                conn.row_factory = sqlite3.Row
+                c = conn.cursor()
+                cursor = c.execute( "SELECT * FROM urls WHERE url = ?", (url,) )
+                url_row = cursor.fetchone()
+                cursor.close()
+            return url_row
+        else:
+            return None
 
     # To-do: return affected rows
     def update_url(self, url_id, url, title, depth_level, file_path):
@@ -75,11 +87,11 @@ class Database:
                 conn.row_factory = sqlite3.Row
                 c = conn.cursor()
                 cursor = c.execute( "SELECT * FROM urls_from_parsing WHERE url_from_parsing_id = ?", (url_from_parsing_id,) )
-                url_tuple = cursor.fetchone()
+                url_row = cursor.fetchone()
                 cursor.close()
-            return url_tuple
+            return url_row
         else:
-            return -1
+            return None
 
     # To-do: return affected rows
     def update_url_from_parsing(self, url_from_parsing_id, url_id, url, external_to_domain, title, depth_level):

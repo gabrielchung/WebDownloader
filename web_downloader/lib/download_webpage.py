@@ -19,7 +19,15 @@ def insert_url_to_db(url_id, url, title, depth_level, file_path):
     curr_db = db.Database()
     curr_db.update_url(url_id, url, title, depth_level, file_path)
 
-def download_url(url, curr_depth_level, wait_time=5, retry=2):
+def download_url(url, curr_depth_level, use_cache=False, wait_time=5, retry=2):
+    if use_cache:
+        curr_db = db.Database()
+        url_obj = curr_db.get_url_by_url(url)
+        if url_obj is not None:
+            return url_obj['url_id']
+    return exec_download_url(url, curr_depth_level, wait_time, retry)
+
+def exec_download_url(url, curr_depth_level, wait_time, retry):
     app_paths = paths.App_Paths()
 
     # Create directory if the firefox driver directory is not created
